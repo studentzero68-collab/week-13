@@ -54,3 +54,5 @@ npm run dev
 - Mobile adaptation
 
 - Final review
+
+- Deployment prep
