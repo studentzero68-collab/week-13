@@ -1,4 +1,4 @@
-import { Routes, Route, Link, NavLink, useParams } from 'react-router-dom';
+import { Routes, Route, Link, useParams } from 'react-router-dom';
 
 const items = [
   { id: '1', title: 'Aurora Lamp', description: 'A soft, ambient lamp that turns any room calm and cozy.', category: 'Home' },
@@ -27,15 +27,18 @@ function Detail() {
   const { id } = useParams();
   const item = items.find((entry) => entry.id === id);
 
-  if (!item) {
-    return <NotFound />;
-  }
-
   return (
     <div className="page">
-      <h1>{item.title}</h1>
-      <p className="badge">{item.category}</p>
-      <p>{item.description}</p>
+      <h1>{item ? item.title : 'Item not found'}</h1>
+      <p className="badge">Current ID: {id}</p>
+      {item ? (
+        <>
+          <p>{item.description}</p>
+          <p><strong>Category:</strong> {item.category}</p>
+        </>
+      ) : (
+        <p>No item exists for this ID.</p>
+      )}
       <Link to="/" className="link-btn">Back to home</Link>
     </div>
   );
@@ -55,8 +58,8 @@ function App() {
   return (
     <div className="app-shell">
       <nav className="nav">
-        <NavLink to="/" end>Home</NavLink>
-        <NavLink to="/item/1">Detail</NavLink>
+        <Link to="/">Home</Link>
+        <Link to="/item/1">Sample detail</Link>
       </nav>
 
       <Routes>
