@@ -26,3 +26,5 @@ npm run dev
 - BrowserRouter setup
 
 - Link navigation
+
+- Active state styling
