@@ -48,3 +48,5 @@ npm run dev
 - Content polish
 
 - UI consistency
+
+- Readable typography
