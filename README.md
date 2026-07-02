@@ -16,3 +16,5 @@ npm run dev
 - Router structure
 
 - Home navigation
+
+- Detail route
