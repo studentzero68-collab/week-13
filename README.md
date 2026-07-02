@@ -28,3 +28,5 @@ npm run dev
 - Link navigation
 
 - Active state styling
+
+- Card layout
