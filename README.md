@@ -24,3 +24,5 @@ npm run dev
 - Data-driven items
 
 - BrowserRouter setup
+
+- Link navigation
