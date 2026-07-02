@@ -20,3 +20,5 @@ npm run dev
 - Detail route
 
 - 404 fallback
+
+- Data-driven items
