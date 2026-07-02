@@ -38,3 +38,5 @@ npm run dev
 - Accessibility polish
 
 - Hero intro
+
+- Route summary
