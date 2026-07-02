@@ -22,3 +22,5 @@ npm run dev
 - 404 fallback
 
 - Data-driven items
+
+- BrowserRouter setup
