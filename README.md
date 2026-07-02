@@ -60,3 +60,5 @@ npm run dev
 - Submission checklist
 
 - Project reflection
+
+- History cleanup
