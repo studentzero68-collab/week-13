@@ -40,3 +40,5 @@ npm run dev
 - Hero intro
 
 - Route summary
+
+- Visual hierarchy
