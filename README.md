@@ -32,3 +32,5 @@ npm run dev
 - Card layout
 
 - Page spacing
+
+- Responsive layout
