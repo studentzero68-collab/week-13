@@ -44,3 +44,5 @@ npm run dev
 - Visual hierarchy
 
 - Interactive feedback
+
+- Content polish
