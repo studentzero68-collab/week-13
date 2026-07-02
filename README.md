@@ -58,3 +58,5 @@ npm run dev
 - Deployment prep
 
 - Submission checklist
+
+- Project reflection
