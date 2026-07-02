@@ -215,29 +215,6 @@ img {
   color: var(--text-muted);
 }
 
-.reflection {
-  margin-top: 28px;
-  padding: 18px 20px;
-  border: 1px solid var(--panel-border);
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.reflection h2 {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-
-.reflection ul {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--text-muted);
-}
-
-.reflection li + li {
-  margin-top: 8px;
-}
-
 .not-found {
   text-align: center;
   padding: 40px 24px;

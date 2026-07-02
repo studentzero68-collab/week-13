@@ -34,14 +34,6 @@ function Home() {
         </div>
       </section>
 
-      <section className="reflection" aria-labelledby="reflection-heading">
-        <h2 id="reflection-heading">Assignment Reflection</h2>
-        <ul>
-          <li>This project uses React Router to create a simple multi-page experience with navigation that updates the view without a full page refresh.</li>
-          <li>I learned how to use useParams to pull the correct game from a data array and display its details dynamically based on the URL.</li>
-          <li>Using HashRouter was important for keeping the app compatible with GitHub Pages and making the routes work reliably in deployment.</li>
-        </ul>
-      </section>
     </div>
   );
 }
