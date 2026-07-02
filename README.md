@@ -12,3 +12,5 @@ It includes:
 npm install
 npm run dev
 ```
+
+- Router structure
