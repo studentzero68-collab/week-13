@@ -36,3 +36,5 @@ npm run dev
 - Responsive layout
 
 - Accessibility polish
+
+- Hero intro
