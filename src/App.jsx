@@ -1,16 +1,16 @@
 import { Routes, Route, Link, useParams } from 'react-router-dom';
 
 const items = [
-  { id: '1', title: 'Aurora Lamp', description: 'A soft, ambient lamp that turns any room calm and cozy.', category: 'Home' },
-  { id: '2', title: 'Nova Headphones', description: 'Immersive sound with a clean design for long listening sessions.', category: 'Audio' },
-  { id: '3', title: 'Pixel Watch', description: 'A sleek smartwatch built for daily movement and simple tracking.', category: 'Wearables' }
+  { id: '1', title: 'Dark Souls', description: 'A brutal action RPG where every step forward feels earned and every victory is hard-won.', category: 'Action RPG' },
+  { id: '2', title: 'Sekiro', description: 'A sword-and-blood journey focused on precision, patience, and mastering the art of combat.', category: 'Action' },
+  { id: '3', title: 'Elden Ring', description: 'A vast open world filled with mystery, danger, and unforgettable boss encounters.', category: 'Open World' }
 ];
 
 function Home() {
   return (
     <div className="page">
-      <h1>Home</h1>
-      <p>Explore a small collection of featured items and open their detail pages.</p>
+      <h1>FromSoftware Hub</h1>
+      <p>Step into a simple gaming center for Dark Souls, Sekiro, and Elden Ring.</p>
       <div className="card-grid">
         {items.map((item) => (
           <Link to={`/item/${item.id}`} key={item.id} className="card">
@@ -48,7 +48,7 @@ function NotFound() {
   return (
     <div className="page not-found">
       <h1>404</h1>
-      <p>The page you are looking for does not exist.</p>
+      <p>The path is lost in the ashes. Return to the hub.</p>
       <Link to="/" className="link-btn">Go home</Link>
     </div>
   );
