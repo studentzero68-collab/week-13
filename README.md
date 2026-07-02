@@ -18,3 +18,5 @@ npm run dev
 - Home navigation
 
 - Detail route
+
+- 404 fallback
