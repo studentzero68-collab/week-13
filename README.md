@@ -52,3 +52,5 @@ npm run dev
 - Readable typography
 
 - Mobile adaptation
+
+- Final review
