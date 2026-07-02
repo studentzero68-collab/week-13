@@ -42,3 +42,5 @@ npm run dev
 - Route summary
 
 - Visual hierarchy
+
+- Interactive feedback
