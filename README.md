@@ -30,3 +30,5 @@ npm run dev
 - Active state styling
 
 - Card layout
+
+- Page spacing
