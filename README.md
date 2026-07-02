@@ -46,3 +46,5 @@ npm run dev
 - Interactive feedback
 
 - Content polish
+
+- UI consistency
