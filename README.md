@@ -14,3 +14,5 @@ npm run dev
 ```
 
 - Router structure
+
+- Home navigation
