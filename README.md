@@ -50,3 +50,5 @@ npm run dev
 - UI consistency
 
 - Readable typography
+
+- Mobile adaptation
