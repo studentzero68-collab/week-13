@@ -1,88 +1,68 @@
-import { NavLink, Routes, Route, Link, Navigate, useParams } from 'react-router-dom';
-import { games } from './data';
+import { Routes, Route, Link, useParams } from 'react-router-dom';
+import { useState } from 'react';
+
+const items = [
+  { id: '1', title: 'Dark Souls', description: 'A brutal action RPG where every step forward feels earned and every victory is hard-won.', category: 'Action RPG' },
+  { id: '2', title: 'Sekiro', description: 'A sword-and-blood journey focused on precision, patience, and mastering the art of combat.', category: 'Action' },
+  { id: '3', title: 'Elden Ring', description: 'A vast open world filled with mystery, danger, and unforgettable boss encounters.', category: 'Open World' }
+];
+
+// These are the IDs that trigger the error
+const darkSoulsGames = ['1'];
 
 function Home() {
   return (
-    <div className="page home-page">
-      <section className="hero">
-        <div>
-          <p className="eyebrow">FromSoftware Collection</p>
-          <h1>FromSoftware Game Library</h1>
-          <p className="hero-copy">Explore legendary worlds, unforgettable bosses, and the kind of adventures that demand patience, courage, and resolve.</p>
-          <Link to="/item/6" className="hero-btn">Explore Games</Link>
-        </div>
-      </section>
-
-      <section className="games-section" aria-labelledby="featured-games-heading">
-        <div className="section-heading">
-          <h2 id="featured-games-heading">Featured Games</h2>
-          <p>Browse a curated selection of titles that define the studio's legacy.</p>
-        </div>
-
-        <div className="card-grid">
-          {games.map((game) => (
-            <article className="card" key={game.id}>
-              <img src={game.image} alt={`${game.title} artwork`} loading="lazy" />
-              <div className="card-body">
-                <p className="card-meta">{game.genre} • {game.releaseYear}</p>
-                <h3>{game.title}</h3>
-                <p>{game.description}</p>
-                <Link to={`/item/${game.id}`} className="card-link">View Details</Link>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
+    <div className="page">
+      <h1>FromSoftware Hub</h1>
+      <p>Step into a simple gaming center for Dark Souls, Sekiro, and Elden Ring.</p>
+      <div className="card-grid">
+        {items.map((item) => (
+          <Link to={`/item/${item.id}`} key={item.id} className="card">
+            <h2>{item.title}</h2>
+            <p>{item.category}</p>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
 
 function Detail() {
   const { id } = useParams();
-  const game = games.find((entry) => entry.id === id);
+  const item = items.find((entry) => entry.id === id);
+  const [errorDismissed, setErrorDismissed] = useState(false);
 
-  if (!game) {
-    return <Navigate to="/404" replace />;
-  }
+  const showError = darkSoulsGames.includes(id) && !errorDismissed;
 
   return (
-    <div className="page detail-page">
-      <img src={game.image} alt={`${game.title} banner`} className="detail-banner" />
-      <div className="detail-content">
-        <p className="eyebrow">Featured Game</p>
-        <h1>{game.title}</h1>
-        <p className="detail-intro">{game.description}</p>
+    <div className="page">
 
-        <div className="detail-grid">
-          <div>
-            <p><strong>Developer</strong><br />{game.developer}</p>
-            <p><strong>Publisher</strong><br />{game.publisher}</p>
-            <p><strong>Release Year</strong><br />{game.releaseYear}</p>
-          </div>
-          <div>
-            <p><strong>Genre</strong><br />{game.genre}</p>
-            <p><strong>Difficulty</strong><br />{game.difficulty}</p>
-            <p><strong>Platforms</strong><br />{game.platforms}</p>
+      {showError && (
+        <div className="error-banner">
+          <div className="error-content">
+            <h2>⚠️ Error: You dare challenge Dark Souls?</h2>
+            <p>This path leads to suffering. Proceed with caution, Unkindled One.</p>
+            <button
+              className="error-dismiss"
+              onClick={() => setErrorDismissed(true)}
+            >
+              I accept the pain — show me anyway
+            </button>
           </div>
         </div>
+      )}
 
-        <section className="detail-section">
-          <h2>Story Overview</h2>
-          <p>{game.story}</p>
-        </section>
-
-        <section className="detail-section">
-          <h2>Key Features</h2>
-          <ul>
-            {game.features.map((feature) => (
-              <li key={feature}>{feature}</li>
-            ))}
-          </ul>
-        </section>
-
-        <Link to="/" className="link-btn">← Return Home</Link>
-      </div>
+      <h1>{item ? item.title : 'Item not found'}</h1>
+      <p className="badge">Current ID: {id}</p>
+      {item ? (
+        <>
+          <p>{item.description}</p>
+          <p><strong>Category:</strong> {item.category}</p>
+        </>
+      ) : (
+        <p>No item exists for this ID.</p>
+      )}
+      <Link to="/" className="link-btn">Back to home</Link>
     </div>
   );
 }
@@ -90,9 +70,9 @@ function Detail() {
 function NotFound() {
   return (
     <div className="page not-found">
-      <h1>YOU DIED</h1>
-      <p>The page you seek has faded into ash.</p>
-      <Link to="/" className="link-btn">Return Home</Link>
+      <h1>404</h1>
+      <p>The path is lost in the ashes. Return to the hub.</p>
+      <Link to="/" className="link-btn">Go home</Link>
     </div>
   );
 }
@@ -100,19 +80,15 @@ function NotFound() {
 function App() {
   return (
     <div className="app-shell">
-      <header className="topbar">
-        <Link to="/" className="brand">FromSoft Hub</Link>
-        <nav className="nav" aria-label="Primary navigation">
-          <NavLink to="/" end>Home</NavLink>
-          <NavLink to="/item/6">Featured Game</NavLink>
-        </nav>
-      </header>
+      <nav className="nav">
+        <Link to="/">Home</Link>
+        <Link to="/item/1">Sample detail</Link>
+      </nav>
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<Detail />} />
-        <Route path="/404" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/404" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

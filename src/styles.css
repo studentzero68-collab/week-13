@@ -234,3 +234,36 @@ img {
     padding: 18px;
   }
 }
+
+/* ERROR BANNER */
+.error-banner {
+  background-color: #1a0000;
+  border: 2px solid #cc0000;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.error-content h2 {
+  color: #ff4444;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
+}
+.error-content p {
+  color: #ffaaaa;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+.error-dismiss {
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+.error-dismiss:hover {
+  background-color: #ff2222;
+}
