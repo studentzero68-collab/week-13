@@ -1,4 +1,4 @@
-import { NavLink, Routes, Route, Link, useParams } from 'react-router-dom';
+import { NavLink, Routes, Route, Link, Navigate, useParams } from 'react-router-dom';
 import { games } from './data';
 
 function Home() {
@@ -43,7 +43,7 @@ function Detail() {
   const game = games.find((entry) => entry.id === id);
 
   if (!game) {
-    return <NotFound />;
+    return <Navigate to="/404" replace />;
   }
 
   return (
@@ -111,7 +111,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/item/:id" element={<Detail />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
     </div>
   );
